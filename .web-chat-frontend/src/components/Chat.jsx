@@ -1,12 +1,13 @@
 'use strict';
 import React from "react";
 import ReactDOM from 'react-dom/client';
+import MessageContainer from "./MessageContainer";
 
 export class Chat extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-
+            messages: props.messages
         }
     }
 
@@ -15,10 +16,10 @@ export class Chat extends React.Component {
     }
 
     render() {
-        return(
-            <>
-            <p>Chat Component</p>
-            </>
+        return (
+            <div className='chat'>
+                <MessageContainer messages={this.state.messages} />
+            </div>
         )
     }
 }

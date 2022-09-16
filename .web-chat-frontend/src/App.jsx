@@ -1,7 +1,7 @@
 'use strict';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { Chat } from './views/Chat';
+import { Chat } from './components/Chat';
 import Lobby from './components/Lobby';
 import { HubConnectionBuilder, LogLevel } from '@microsoft/signalr';
 
@@ -9,7 +9,8 @@ export class App extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            connection: null
+            connection: null,
+            messages: []
         }
     }
 
@@ -22,6 +23,10 @@ export class App extends React.Component {
 
             connection.on('ReceiveMessage', (user, message) => {
                 console.log('message received:', message);
+                const newMsg = [...this.state.messages, { user, message }];
+
+
+                this.setState({ messages: newMsg })
             });
 
             await connection.start();
@@ -38,7 +43,8 @@ export class App extends React.Component {
         return (
             <div className='App'>
                 <h2>Chat Service</h2>
-                <Lobby joinRoom={this.joinRoom} />
+                {!this.state.connection ? <>Disconnected</> : <>Connected</>}
+                {!this.state.connection ? <Lobby joinRoom={this.joinRoom} /> : <Chat messages={this.state.messages} />}
             </div>
         )
     }
