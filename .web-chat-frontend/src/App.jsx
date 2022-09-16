@@ -2,25 +2,44 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Chat } from './views/Chat';
+import Lobby from './components/Lobby';
+import { HubConnectionBuilder, LogLevel } from '@microsoft/signalr';
 
 export class App extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            connection: null
+        }
+    }
 
+    joinRoom = async (user, room) => {
+        try {
+            const connection = new HubConnectionBuilder()
+                .withUrl('https://localhost:44391/chat')
+                .configureLogging(LogLevel.Information)
+                .build();
+
+            connection.on('ReceiveMessage', (user, message) => {
+                console.log('message received:', message);
+            });
+
+            await connection.start();
+            await connection.invoke('JoinRoom', { user, room });
+
+            this.setState({ connection: connection });
+
+        } catch (error) {
+            console.log(error);
         }
     }
 
     render() {
         return (
-            <>
-                <Chat />
-            </>
+            <div className='App'>
+                <h2>Chat Service</h2>
+                <Lobby joinRoom={this.joinRoom} />
+            </div>
         )
     }
 }
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-    <App />
-);
