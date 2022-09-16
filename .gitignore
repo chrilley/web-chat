@@ -1,4 +1,7 @@
 .vscode/
+.vs/
+bin/
+obj/
 node_modules/
 dist/
 .parcel-cache/
