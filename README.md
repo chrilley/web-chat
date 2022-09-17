@@ -28,13 +28,13 @@ A small web-chat project were I experiment with SignalR, React and .Net 5.0.
 >
 > **1) Install .NET 5.0 https://dotnet.microsoft.com/en-us/download/dotnet/5.0** 
 >
-> **3) Navigate to the downloaded repo "web-chat/ChatClient/" using your favorite terminal.**
+> **2) Navigate to the downloaded repo "web-chat/ChatClient/" using your favorite terminal.**
 >
-> **4) Once within the previously mentioned folder, type "dotnet restore" to download all the neccessary dependencies**
+> **3) Once within the previously mentioned folder, type "dotnet restore" to download all the neccessary dependencies**
 >
-> **5) Build App & Run Server by typing 'dotnet run' within the "web-chat/ChatClient/" folder**
+> **4) Build App & Run Server by typing 'dotnet run' within the "web-chat/ChatClient/" folder**
 >
-> **6) You can now use the Frontend project to connect to this server**
+> **5) You can now use the Frontend project to connect to this server**
 >
 >
 ## Troubleshooting
