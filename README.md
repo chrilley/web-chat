@@ -44,3 +44,4 @@ Experimenting with SignalR by making a simple chat client with a backend & front
 >
 > Parcel - Transpiling and running the project while developing & testing.
 >
+> SignalR - Required to communicate real-time with the backend server.
