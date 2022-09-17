@@ -30,6 +30,8 @@ Experimenting with SignalR by making a simple chat client with a backend & front
 >
 > **6) You can now use the Frontend project to connect to this server**
 >
+> Note: You cannot connect to anything without also running the backend server. See steps below.
+>
 ## Troubleshooting
 >
 > TO DO
