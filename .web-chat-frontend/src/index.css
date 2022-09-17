@@ -1,0 +1,55 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body{
+    color: white;
+    background-color: rgb(120, 29, 53);
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.chat {
+    display: flex;
+    flex-direction: column;
+    width: 75%
+}
+
+.message-container {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(226, 216, 255);
+    border-radius: 1em;
+    padding: 1em;
+    
+
+}
+
+
+.user-message {
+    display: flex;
+    background-color: rgb(182, 88, 127);
+    border-radius: 1em;
+    margin: 1em 0em;
+    padding: 1em;
+}
+.message {
+    background-color: azure;
+    border-radius: 1em;
+    padding: 1em;
+    color:rgb(120, 29, 53)
+}
+
+.from-user {
+    display: flex;
+    margin-left: 1em;
+    color: white;
+    margin-left: auto;
+}
