@@ -1,6 +1,6 @@
 # web-chat
 
-A small web-chat project were I experiment with SignalR, React and .Net Core 5.0.
+A small web-chat project were I experiment with SignalR, React and .Net 5.0.
 >
 
 ## Instructions: Repo
@@ -22,7 +22,7 @@ A small web-chat project were I experiment with SignalR, React and .Net Core 5.0
 >
 ## Instructions: Backend
 >
-> **1) Install .NET Core 5.0**
+> **1) Install .NET 5.0**
 >
 > **3) Navigate to the downloaded repo "web-chat/ChatClient/" using your favorite terminal.**
 >
