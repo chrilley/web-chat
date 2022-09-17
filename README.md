@@ -14,7 +14,7 @@ Experimenting with SignalR by making a simple chat client with a backend & front
 >
 > **3) Once within the previously mentioned folder, type "npm ci" to download all the neccessary dependencies**
 >
-> **4) Build App & Run Server by typing 'npm start' within the root folder**
+> **4) Build App & Run Server by typing 'npm start' within the "web-chat/.web-chat-frontend" folder**
 >
 > **5) You can now run the app by visiting it at http://localhost:1234 (or whichever port Parcel reports back to you. 1234 is default)**
 >
@@ -26,7 +26,7 @@ Experimenting with SignalR by making a simple chat client with a backend & front
 >
 > **4) Once within the previously mentioned folder, type "dotnet restore" to download all the neccessary dependencies**
 >
-> **5) Build App & Run Server by typing 'dotnet run' within the root folder**
+> **5) Build App & Run Server by typing 'dotnet run' within the "web-chat/ChatClient/" folder**
 >
 > **6) You can now use the Frontend project to connect to this server**
 >
