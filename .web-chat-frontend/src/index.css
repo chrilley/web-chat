@@ -50,21 +50,22 @@ body{
     background-color: rgb(226, 216, 255);
     border-radius: 1em;
     padding: 1em;
-    
-
 }
-
 
 .user-message {
     display: flex;
+    flex-direction: column;
     background-color: rgb(182, 88, 127);
     border-radius: 1em;
     margin: 1em 0em;
     padding: 1em;
+    animation-duration: 0.5s;
+    animation-name: animate-grow;
 }
 .message {
     background-color: azure;
     border-radius: 1em;
+    margin-top: 1em;
     padding: 1em;
     color:rgb(120, 29, 53)
 }
@@ -75,3 +76,13 @@ body{
     color: white;
     margin-left: auto;
 }
+
+@keyframes animate-fade {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  @keyframes animate-grow {
+      0% {scale: 0;}
+      100% {scale: 1;}
+  }
