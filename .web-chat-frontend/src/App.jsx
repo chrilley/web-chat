@@ -13,6 +13,9 @@ export class App extends React.Component {
             messages: []
         }
     }
+    componentDidUpdate() {
+        console.log('App updated:', this.state.messages);
+    }
 
     joinRoom = async (user, room) => {
         try {
@@ -24,8 +27,7 @@ export class App extends React.Component {
             connection.on('ReceiveMessage', (user, message) => {
                 console.log('message received:', message);
                 const newMsg = [...this.state.messages, { user, message }];
-
-
+ 
                 this.setState({ messages: newMsg })
             });
 
@@ -39,12 +41,20 @@ export class App extends React.Component {
         }
     }
 
+    sendMessage = async (message) => {
+        try {
+            await this.state.connection.invoke("SendMessage", message)
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     render() {
         return (
             <div className='App'>
                 <h2>Chat Service</h2>
                 {!this.state.connection ? <>Disconnected</> : <>Connected</>}
-                {!this.state.connection ? <Lobby joinRoom={this.joinRoom} /> : <Chat messages={this.state.messages} />}
+                {!this.state.connection ? <Lobby joinRoom={this.joinRoom} /> : <Chat messages={this.state.messages} sendMessage={this.sendMessage} />}
             </div>
         )
     }
