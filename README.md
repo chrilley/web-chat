@@ -1,7 +1,7 @@
 # web-chat
 
-Experimenting with SignalR by making a simple chat client with a backend & frontend. 
-
+A small web-chat project were I experiment with SignalR, React and .Net Core 5.0.
+>
 
 ## Instructions: Repo
 > **1) Clone this repo to your local workstation**
@@ -18,6 +18,8 @@ Experimenting with SignalR by making a simple chat client with a backend & front
 >
 > **5) You can now run the app by visiting it at http://localhost:1234 (or whichever port Parcel reports back to you. 1234 is default)**
 >
+> Note: You cannot connect to anything without also running the backend server. See steps below.
+>
 ## Instructions: Backend
 >
 > **1) Install .NET Core 5.0**
@@ -30,7 +32,6 @@ Experimenting with SignalR by making a simple chat client with a backend & front
 >
 > **6) You can now use the Frontend project to connect to this server**
 >
-> Note: You cannot connect to anything without also running the backend server. See steps below.
 >
 ## Troubleshooting
 >
