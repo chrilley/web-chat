@@ -7,8 +7,8 @@ const MessageContainer = ({ messages }) => {
         <div className='message-container'>
             {messages.map((msg, index) =>
                 <div key={index} className='user-message'>
-                    <div className='message'>{msg.message}</div>
                     <div className='from-user'>{msg.user}</div>
+                    <div className='message'>{msg.message}</div>
                 </div>
             )}
         </div>)

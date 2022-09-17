@@ -17,16 +17,21 @@ export class Chat extends React.Component {
         console.log(this.state.messages);
     }
 
-    componentDidUpdate(){
+    componentDidUpdate() {
         console.log(this.state.messages);
     }
 
     render() {
         return (
-            <div className='chat'>
-                <MessageContainer messages={this.props.messages} />
-                <SendMessageForm sendMessage={this.state.sendMessage}></SendMessageForm>
-            </div>
+            <>
+                <div className="leave-room">
+                    <button onClick={() => this.props.closeConnection()}>Leave Room</button>
+                </div>
+                <div className='chat'>
+                    <MessageContainer messages={this.props.messages} />
+                    <SendMessageForm sendMessage={this.state.sendMessage}></SendMessageForm>
+                </div>
+            </>
         )
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.SignalR;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -15,7 +16,18 @@ namespace ChatService.Hubs
             _connections = connections;
         }
 
-        public async Task SendMEssage( string message)
+        public override Task OnDisconnectedAsync(Exception exception)
+        {
+            if(_connections.TryGetValue(Context.ConnectionId, out UserConnection userConnection))
+            {
+                _connections.Remove(Context.ConnectionId);
+                Clients.Group(userConnection.Room)
+                    .SendAsync("ReceiveMessage", _BotUser, $"{userConnection.User} has left");
+            }
+            return base.OnDisconnectedAsync(exception);
+        }
+
+        public async Task SendMessage( string message)
         {
             if(_connections.TryGetValue(Context.ConnectionId, out UserConnection userConnection))
             {

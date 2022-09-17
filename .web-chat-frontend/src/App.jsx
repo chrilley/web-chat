@@ -28,14 +28,27 @@ export class App extends React.Component {
                 console.log('message received:', message);
                 const newMsg = [...this.state.messages, { user, message }];
  
-                this.setState({ messages: newMsg })
+                this.setState({ messages: newMsg });
             });
+
+            connection.onclose(e => {
+                this.setState({ connection: null });
+                this.setState({ messages: [] });
+            })
 
             await connection.start();
             await connection.invoke('JoinRoom', { user, room });
 
             this.setState({ connection: connection });
 
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    closeConnection = async () => {
+        try {
+            await this.state.connection.stop();
         } catch (error) {
             console.log(error);
         }
@@ -54,7 +67,7 @@ export class App extends React.Component {
             <div className='App'>
                 <h2>Chat Service</h2>
                 {!this.state.connection ? <>Disconnected</> : <>Connected</>}
-                {!this.state.connection ? <Lobby joinRoom={this.joinRoom} /> : <Chat messages={this.state.messages} sendMessage={this.sendMessage} />}
+                {!this.state.connection ? <Lobby joinRoom={this.joinRoom} /> : <Chat messages={this.state.messages} sendMessage={this.sendMessage} closeConnection={this.closeConnection}/>}
             </div>
         )
     }
