@@ -29,6 +29,8 @@ body{
     padding: 1em;
     border-radius: 1em;
     margin-left: auto;
+    display: inline-flex;
+    align-items: center; 
 }
 
 .App {
@@ -41,7 +43,8 @@ body{
 .chat {
     display: flex;
     flex-direction: column;
-    width: 75%
+    width: 75%;
+    height: 75%;
 }
 
 .message-container {
@@ -50,6 +53,8 @@ body{
     background-color: rgb(226, 216, 255);
     border-radius: 1em;
     padding: 1em;
+    overflow: scroll;
+    height: 50em;
 }
 
 .user-message {
