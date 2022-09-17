@@ -4,7 +4,11 @@ A small web-chat project were I experiment with SignalR, React and .Net 5.0.
 >
 
 ## Instructions: Repo
-> **1) Clone this repo to your local workstation**
+> **1) Clone or Download this repo to your local workstation**
+>
+> **1.1) In order to clone the repository, run a terminal and navigate to a suitable folder.**
+>
+> **1.2) Enter "git -clone https://github.com/chrilley/web-chat.git" to clone the repository. You may have to enter your GitHub credentials.**
 >
 ## Instructions: Frontend
 >
