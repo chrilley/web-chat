@@ -9,6 +9,28 @@ body{
     background-color: rgb(120, 29, 53);
 }
 
+.message-form {
+    display: flex;
+    margin-top: 1em;
+}
+
+.message-box {
+    display: flex;
+    height: 5em;
+    padding-left: 1em;
+    border-radius: 1em;
+    width: 75%;
+    font-size: larger;
+    border-style: none;
+}
+
+.message-send {
+    display: flex;
+    padding: 1em;
+    border-radius: 1em;
+    margin-left: auto;
+}
+
 .App {
     display: flex;
     flex-direction: column;

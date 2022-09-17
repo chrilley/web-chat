@@ -7,13 +7,13 @@ const SendMessageForm = ({ sendMessage }) => {
     const [message, setMessage] = useState('');
     return (
         <>
-            <form onSubmit={e => {
+            <form className='message-form' onSubmit={e => {
                 e.preventDefault();
                 sendMessage(message);
                 setMessage('');
             }}>
-                <input placeholder='Type message...' onChange={e => setMessage(e.target.value)} value={message}></input>
-                <button type='submit' disabled={!message}>Send Message</button>
+                <input className='message-box' placeholder='Type message...' onChange={e => setMessage(e.target.value)} value={message}></input>
+                <button className='message-send' type='submit' disabled={!message}>Send Message</button>
             </form>
         </>
 
