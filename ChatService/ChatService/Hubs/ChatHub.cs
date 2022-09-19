@@ -13,7 +13,7 @@ namespace ChatService.Hubs
 
         public ChatHub(IDictionary<string, UserConnection> connections)
         {
-            _BotUser = "MyChat Bot";
+            _BotUser = "System";
             _connections = connections;
         }
 
