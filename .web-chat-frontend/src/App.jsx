@@ -10,11 +10,12 @@ export class App extends React.Component {
         super(props)
         this.state = {
             connection: null,
-            messages: []
+            messages: [],
+            users: []
         }
     }
     componentDidUpdate() {
-        console.log('App updated:', this.state.messages);
+        console.log('App updated:', this.state.messages, this.state.users);
     }
 
     joinRoom = async (user, room) => {
@@ -24,16 +25,21 @@ export class App extends React.Component {
                 .configureLogging(LogLevel.Information)
                 .build();
 
+            connection.on('UsersInRoom', (users) => {
+                this.setState({ users: users });
+            });
+
             connection.on('ReceiveMessage', (user, message) => {
                 console.log('message received:', message);
                 const newMsg = [...this.state.messages, { user, message }];
- 
+
                 this.setState({ messages: newMsg });
             });
 
             connection.onclose(e => {
                 this.setState({ connection: null });
                 this.setState({ messages: [] });
+                this.setState({ users: [] });
             })
 
             await connection.start();
@@ -67,7 +73,7 @@ export class App extends React.Component {
             <div className='App'>
                 <h2>Chat Service</h2>
                 {!this.state.connection ? <>Disconnected</> : <>Connected</>}
-                {!this.state.connection ? <Lobby joinRoom={this.joinRoom} /> : <Chat messages={this.state.messages} sendMessage={this.sendMessage} closeConnection={this.closeConnection}/>}
+                {!this.state.connection ? <Lobby joinRoom={this.joinRoom} /> : <Chat messages={this.state.messages} sendMessage={this.sendMessage} closeConnection={this.closeConnection} users={this.state.users} />}
             </div>
         )
     }

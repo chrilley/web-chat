@@ -1,6 +1,7 @@
 'use strict';
 import React from "react";
 import ReactDOM from 'react-dom/client';
+import ConnectedUsers from "./ConnectedUsers";
 import MessageContainer from "./MessageContainer";
 import SendMessageForm from "./SendMessageForm";
 
@@ -9,27 +10,35 @@ export class Chat extends React.Component {
         super(props)
         this.state = {
             messages: props.messages,
-            sendMessage: props.sendMessage
+            sendMessage: props.sendMessage,
+            users: props.users
         }
     }
 
     componentDidMount() {
-        console.log(this.state.messages);
+        console.log('chat mounted users', this.state.users);
     }
 
     componentDidUpdate() {
-        console.log(this.state.messages);
+        console.log('chat updated users', this.state.users);
     }
 
     render() {
         return (
             <>
-                <div className="leave-room">
-                    <button onClick={() => this.props.closeConnection()}>Leave Room</button>
-                </div>
-                <div className='chat'>
-                    <MessageContainer messages={this.props.messages} />
-                    <SendMessageForm sendMessage={this.state.sendMessage}></SendMessageForm>
+
+                <div className='chat-container'>
+                    <ConnectedUsers users={this.state.users} />
+                    
+                    <div className='chat'>
+                        <MessageContainer messages={this.props.messages} />
+                        <SendMessageForm sendMessage={this.state.sendMessage}></SendMessageForm>
+                    </div>
+
+                    <div className="leave-room">
+                        <button onClick={() => this.props.closeConnection()}>Leave Room</button>
+                    </div>
+                    
                 </div>
             </>
         )
