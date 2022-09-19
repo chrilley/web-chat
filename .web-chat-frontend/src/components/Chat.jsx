@@ -15,14 +15,6 @@ export class Chat extends React.Component {
         }
     }
 
-    componentDidMount() {
-        console.log('chat mounted users', this.state.users);
-    }
-
-    componentDidUpdate() {
-        console.log('chat updated users', this.state.users);
-    }
-
     render() {
         return (
             <>

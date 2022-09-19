@@ -3,10 +3,10 @@ import { useEffect } from "react";
 
 const ConnectedUsers = ({ users }) => {
 
-    useEffect(() => {
+/*     useEffect(() => {
         console.log('ConnectedUsers updated', users);
     }, [users]);
-
+ */
 
     return (
         <div className='user-list'>

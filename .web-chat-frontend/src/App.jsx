@@ -14,9 +14,6 @@ export class App extends React.Component {
             users: []
         }
     }
-    componentDidUpdate() {
-        console.log('App updated:', this.state.messages, this.state.users);
-    }
 
     joinRoom = async (user, room) => {
         try {
@@ -30,7 +27,6 @@ export class App extends React.Component {
             });
 
             connection.on('ReceiveMessage', (user, message) => {
-                console.log('message received:', message);
                 const newMsg = [...this.state.messages, { user, message }];
 
                 this.setState({ messages: newMsg });
