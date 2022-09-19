@@ -13,10 +13,10 @@ const Lobby = ({ joinRoom }) => {
                 joinRoom(user, room);
             }}>
 
-                <input placeholder='name' onChange={e => setUser(e.target.value)} />
-                <input placeholder='room' onChange={e => setRoom(e.target.value)} />
+                <input className='txt-box' placeholder='Name...' onChange={e => setUser(e.target.value)} />
+                <input className='txt-box' placeholder='Room...' onChange={e => setRoom(e.target.value)} />
 
-                <button variant='success' type='submit' disabled={!user || !room}>Join</button>
+                <button className='btn' variant='success' type='submit' disabled={!user || !room}>Join Room</button>
             </form>
         </>
     )

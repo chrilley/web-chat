@@ -13,7 +13,7 @@ const SendMessageForm = ({ sendMessage }) => {
                 setMessage('');
             }}>
                 <input className='message-box' placeholder='Type message...' onChange={e => setMessage(e.target.value)} value={message}></input>
-                <button className='message-send' type='submit' disabled={!message}>Send Message</button>
+                <button className='btn message-send' type='submit' disabled={!message}>Send Message</button>
             </form>
         </>
 

@@ -36,9 +36,9 @@ export class Chat extends React.Component {
                     </div>
 
                     <div className="leave-room">
-                        <button onClick={() => this.props.closeConnection()}>Leave Room</button>
+                        <button className='btn btn-leave-room' onClick={() => this.props.closeConnection()}>Leave Room</button>
                     </div>
-                    
+
                 </div>
             </>
         )

@@ -4,9 +4,64 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-body{
+body {
     color: white;
     background-color: rgb(120, 29, 53);
+    padding: 1em;
+    height: 100vw;
+}
+
+/* Custom Scrollbar Style */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: rgb(182, 88, 127);
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(70, 233, 149);
+  }
+
+.root { 
+    height: 100%;
+}
+
+.header {
+    display: flex;
+    margin-bottom: 1em;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn {
+    border-radius: 1em;
+    border-style: none;
+    padding: 1em;
+    background-color:rgb(182, 88, 127);
+    color:rgb(226, 216, 255);
+}
+
+.btn:hover {
+    background-color:rgb(70, 233, 149);
+}
+
+.txt-box {
+    padding: 1em;
+    border-radius: 1em;
+    border-style: none;
+    margin: 1em;
+}
+
+.btn-leave-room {
+    background-color: rgb(242, 44, 44);
+    color:rgb(226, 216, 255);
 }
 
 .message-form {
@@ -26,11 +81,13 @@ body{
 
 .message-send {
     display: flex;
-    padding: 1em;
-    border-radius: 1em;
     margin-left: auto;
     display: inline-flex;
     align-items: center; 
+}
+
+.message-send:hover {
+    background-color:rgb(70, 233, 149);
 }
 
 .App {
@@ -38,11 +95,13 @@ body{
     flex-direction: column;
     align-items: center;
     width: 100%;
+    height: 100%;
 }
 
 .chat-container {
     display: flex;
     flex-direction: row;
+    width: 100%;
 }
 
 .chat {
@@ -50,11 +109,14 @@ body{
     flex-direction: column;
     width: 75%;
     height: 75%;
+    margin: 0em 1em 0em 1em;
+    flex: 1;
 }
 
 .message-container {
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
     background-color: rgb(226, 216, 255);
     border-radius: 1em;
     padding: 1em;
