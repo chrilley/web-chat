@@ -92,7 +92,7 @@ export class App extends React.Component {
                         <h2>Web Chat</h2>
                     </div>
                     {!this.state.connection ? <Lobby joinRoom={this.joinRoom} /> : <Chat messages={this.state.messages} sendMessage={this.sendMessage} closeConnection={this.closeConnection} users={this.state.users} />}
-                <Footer />
+                    <Footer />
                 </div>
             </>
         )
