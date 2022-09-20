@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Chat } from './components/Chat';
 import Lobby from './components/Lobby';
+import Footer from './components/Footer';
 import { HubConnectionBuilder, LogLevel } from '@microsoft/signalr';
 
 export class App extends React.Component {
@@ -11,7 +12,9 @@ export class App extends React.Component {
         this.state = {
             connection: null,
             messages: [],
-            users: []
+            users: [],
+            error: null,
+            hasError: false
         }
     }
 
@@ -44,7 +47,8 @@ export class App extends React.Component {
             this.setState({ connection: connection });
 
         } catch (error) {
-            console.log(error);
+            this.setState({ error: error });
+            this.setState({ hasError: true });
         }
     }
 
@@ -52,7 +56,8 @@ export class App extends React.Component {
         try {
             await this.state.connection.stop();
         } catch (error) {
-            console.log(error);
+            this.setState({ error: error });
+            this.setState({ hasError: true });
         }
     }
 
@@ -60,18 +65,36 @@ export class App extends React.Component {
         try {
             await this.state.connection.invoke("SendMessage", message)
         } catch (error) {
-            console.log(error);
+            this.setState({ error: error });
+            this.setState({ hasError: true });
         }
     }
 
+    refresh = () => {
+        window.location.reload();
+    }
+
     render() {
+        if (this.state.hasError) {
+            return (
+                <>
+                    <div className='error-message'>
+                        {this.state.error.toString()}
+                        <button className='btn' onClick={this.refresh}>Refresh</button>
+                    </div>
+
+                </>)
+        }
         return (
-            <div className='App'>
-                <div className='header'>
-                    <h2>Web Chat</h2>
+            <>
+                <div className='App'>
+                    <div className='header no-select'>
+                        <h2>Web Chat</h2>
+                    </div>
+                    {!this.state.connection ? <Lobby joinRoom={this.joinRoom} /> : <Chat messages={this.state.messages} sendMessage={this.sendMessage} closeConnection={this.closeConnection} users={this.state.users} />}
+                <Footer />
                 </div>
-                {!this.state.connection ? <Lobby joinRoom={this.joinRoom} /> : <Chat messages={this.state.messages} sendMessage={this.sendMessage} closeConnection={this.closeConnection} users={this.state.users} />}
-            </div>
+            </>
         )
     }
 }

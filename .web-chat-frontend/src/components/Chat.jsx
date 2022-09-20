@@ -18,7 +18,6 @@ export class Chat extends React.Component {
     render() {
         return (
             <>
-
                 <div className='chat-container'>
                     <ConnectedUsers users={this.state.users} />
                     
@@ -30,7 +29,6 @@ export class Chat extends React.Component {
                     <div className="leave-room">
                         <button className='btn btn-leave-room' onClick={() => this.props.closeConnection()}>Leave Room</button>
                     </div>
-
                 </div>
             </>
         )
